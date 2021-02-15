@@ -85,29 +85,29 @@ def testingData(X, y, classifier):
 
 if __name__ == '__main__':
     # Training Classifiers
-    X_train, y_train = prepareTrainData(trainingDataFile)
+    # X_train, y_train = prepareTrainData(trainingDataFile)
     # train(X_train, y_train)
 
     # Training Single Classfier
-    trainRandomForest(X_train, y_train)
+    # trainRandomForest(X_train, y_train)
     #
     # # Testing Classifiers
-    # print("Loading testing data...")
-    # reviews = importData(testDataFile)
-    # reviews = reviews[["score", "reviewText"]]
-    # reviews = reviews.dropna()
-    # reviews = reviews.sample(frac=0.5)
-    #
-    # # # scoreHistogram(reviews)
-    # print("Loading common words...")
-    # common_words = readCommonWords()
-    #
-    # feature_dict = prepareCommonWordsDictionary(common_words)
-    #
-    # print("Preparing data for classifiers..")
-    # X, y = create_bow(reviews, feature_dict)
-    #
-    # testingData(X, y, loadSVM())
-    # testingData(X, y, loadDummy())
-    # testingData(X, y, loadNBC())
-    # testingData(X, y, loadRandomForest())
+    print("Loading testing data...")
+    reviews = importData(testDataFile)
+    reviews = reviews[["score", "reviewText"]]
+    reviews = reviews.dropna()
+    reviews = reviews.sample(frac=0.5)
+
+    # # scoreHistogram(reviews)
+    print("Loading common words...")
+    common_words = readCommonWords()
+
+    feature_dict = prepareCommonWordsDictionary(common_words)
+
+    print("Preparing data for classifiers..")
+    X, y = create_bow(reviews, feature_dict)
+
+    testingData(X, y, loadSVM())
+    testingData(X, y, loadDummy())
+    testingData(X, y, loadNBC())
+    testingData(X, y, loadRandomForest())
