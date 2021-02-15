@@ -96,7 +96,6 @@ if __name__ == '__main__':
     reviews = importData(testDataFile)
     reviews = reviews[["score", "reviewText"]]
     reviews = reviews.dropna()
-    reviews = reviews.sample(frac=0.5)
 
     # # scoreHistogram(reviews)
     print("Loading common words...")
